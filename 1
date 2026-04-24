@@ -1,0 +1,26 @@
+def vow_and_con(text):
+    '''
+    Count how many vowels and consonants in text
+    '''
+    vowels = ['а', 'е', 'ё', 'и', 'о',
+              'у', 'ы', 'э', 'ю', 'я'] #all vowels
+    
+    consonants = ['б', 'в', 'г', 'д', 'ж',
+                  'з', 'й', 'к', 'л', 'м',
+                  'н', 'п', 'р', 'с', 'т',
+                  'ф', 'х', 'ц', 'ч', 'ш', 'щ'] #all consonants
+    
+    vowels_count = 0
+    consonants_count = 0
+
+    for letter in vowels:
+        vowels_count += text.count(letter) #count all vowels in sentence
+    print(vowels_count)
+    
+    for letter in consonants:
+        consonants_count += text.count(letter) #count all consonants in sentence
+    print(consonants_count)
+    
+
+text = 'Представьте, что здесь некий осмысленный текст на русском'
+vow_and_con(text)
