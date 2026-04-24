@@ -1,0 +1,15 @@
+def make_payment(P):
+    '''
+    Makes a payment and checks its success
+    '''
+    try:
+        P = int(P)
+        if P > 1000 or P < 20: #p too big or too small
+            print('Повторить попытку')
+        else:
+            print('Успех')
+    except ValueError: #error when p isn't num
+        print('Повторить попытку')
+
+
+make_payment(35)
