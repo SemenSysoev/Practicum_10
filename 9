@@ -1,0 +1,35 @@
+def is_leap(year):
+    '''Check if the year is leap'''
+    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+
+def months_leap(is_leap):
+    '''Check if the year is leap and return months based on the answer'''
+    if is_leap:
+        months = [0, 31, 60, 91, 
+                  121, 152, 182, 213, 
+                  244, 274, 305, 335]
+    else:
+        months = [0, 31, 59, 90, 
+                  120, 151, 181, 212, 
+                  243, 273, 304, 334] 
+    return months
+
+def seconds_counter(time: str):
+    '''
+    Counts how many seconds have passed 
+    since the beginning of the year to the time
+    '''
+    time = time.split(' ')
+    date = time[0].split('/')
+    time_of_date = time[1].split(':')
+    months = months_leap(is_leap(int(date[2])))
+
+    days = int(date[1]) + months[int(date[0]) - 1] #how many days
+    days_second = (days - 1) * 24 * 60 * 60 #how many seconds
+    time_second = int(time_of_date[0]) * 60 * 60 
+    time_second += int(time_of_date[1]) * 60 + int(time_of_date[2])
+    
+    return days_second + time_second #all seconds
+
+
+print(seconds_counter("03/20/2026 10:07:40"))
