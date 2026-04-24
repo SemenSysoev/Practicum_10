@@ -1,0 +1,68 @@
+import turtle
+
+screen = turtle.Screen()
+screen.bgcolor("white")
+t = turtle.Turtle()
+t.speed(0)
+
+
+def draw_square(size, color):
+    '''
+    Draws square
+    '''
+    t.fillcolor(color)
+    t.begin_fill()
+    for i in range(4):
+        t.forward(size)
+        t.left(90)
+    t.end_fill()
+
+def draw_rhombus(size, color):
+    '''
+    Draws rhombus
+    '''
+    t.fillcolor(color)
+    t.begin_fill()
+    for i in range(2):
+        t.forward(size)
+        t.left(60)
+        t.forward(size)
+        t.left(120)
+    t.end_fill()
+
+def draw_flower_element(size, color):
+    '''
+    Draws flower element
+    '''
+    t.fillcolor(color)
+    t.begin_fill()
+    t.circle(size / 2)
+    t.end_fill()
+
+def move_to(x, y):
+    '''
+    Moves turtle to coordinates
+    '''
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+
+
+start_x = -250
+y_position = 0
+step = 100
+
+for i in range(5):
+    curr_x = start_x + (i * step)
+    
+    move_to(curr_x, y_position)
+    draw_square(80, "#FFD700")
+    
+    move_to(curr_x + 10, y_position + 10)
+    draw_rhombus(40, "#FF4500")
+    
+    move_to(curr_x + 40, y_position + 30)
+    draw_flower_element(30, "#6D0A8B")
+
+t.hideturtle()
+screen.mainloop()
