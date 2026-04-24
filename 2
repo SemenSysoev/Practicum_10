@@ -1,0 +1,16 @@
+def fib(number):
+    '''
+    Print the first Fibonacci numbers
+    '''
+    first_num = 1
+    second_num = 1
+    print(first_num, second_num, end=' ')
+    
+    for i in range(number - 2):
+        between_num = first_num + second_num #creat sum first num and second num
+        print(between_num, end=' ')
+        first_num = second_num #first_new num become second
+        second_num = between_num #second_new num become sum of second_old and first_old
+
+
+fib(10)
