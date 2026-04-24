@@ -1,0 +1,30 @@
+def discount(cost: int, card: bool, holiday: bool):
+    '''
+    Count the discount amount
+    '''
+    discount = 0
+    
+    if card:
+        discount += 5 #in case person having card discount increase
+    if holiday:
+        discount += 3 #in case it is holiday discount increase
+    
+    if cost > 5000:
+        return cost - ((discount + 3) / 100 * cost) #cost depends on value
+    elif cost > 15000:
+        return cost - ((discount + 5) / 100 * cost)
+    elif cost > 20000:
+        return cost - ((discount + 7) / 100 * cost)
+    elif cost > 30000:
+        discount += 10 
+
+        if discount > 15: #probably there can be discount above 15
+            return cost * 0.85
+        else:
+            return cost - (discount / 100 * cost)
+        
+    else:
+        return cost - (discount / 100 * cost)
+
+
+print(round(discount(34343, True, True), 2))
